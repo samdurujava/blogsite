@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Base</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+
+</head>
+<body>
+<div class="container">
+    <div>
+        <div th:fragment="navlinks">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top order-3">
+
+                <div class="app-name">
+                    <img src="https://www.wildirishseaweeds.com/wp-content/uploads/2016/11/blog.jpg"
+                         height="70" width="90">
+                    <a href="/">Sam's Blog</a> ☄
+                </div>
+
+                <!-- Links -->
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link text-info font-weight-bold" href="/posts">Blog Posts
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary font-weight-bold" href="/login">Login
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary font-weight-bold" href="/profile">Author
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary font-weight-bold" href="/overview">Overview
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary font-weight-bold" href="/logout">Logout
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+        </div>
+</div>
+
+    <div th:fragment="header">
+        <div class="container-fluid" >
+            <img src="https://storage.googleapis.com/previewtechs-blog-media-statics/1/java-development-banner.jpg"
+                 alt="main logo" height="350" width="1800">
+
+        </div>
+
+    <div th:fragment="loginheader">
+        <div class="container-fluid" >
+            <img src="http://samantha.talons43.ca/files/2016/09/cropped-cropped-Sams-blog-header.jpg"
+                 alt="blog logo" height="350" width="1800">
+
+        </div>
+    </div>
+
+        <div align="center" th:fragment="footer">
+
+            <p class="mt-5 mb-3 text-muted text-center">&copy; 2019-2020</p>
+
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+</div>
+</body>
