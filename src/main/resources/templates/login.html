@@ -7,34 +7,30 @@
     <link rel="stylesheet" type="text/css" th:href="style.css">
 </head>
 <body>
-<h1></h1>
 
-<div th:replace="base :: navlinks"></div>
+<!--<div th:replace="base :: navlinks"></div>-->
+<!--<div th:replace="base :: header1"></div>-->
 <br />
 <br />
 <br />
 
 <div class="container">
-    <!--<div th:replace="base :: header"></div>-->
-    <form action="#" th:action="@{/send/}" th:object="${blog}" method="post" enctype="multipart/form-data">
-        <input type="hidden" th:field="*{id}" />
-        Blog Title<br /><textarea class="form-control" rows="3" th:field="*{title}"/><br />
+    <style type="text/css">
+        body { background: grey !important; } /* Adding !important forces the browser to overwrite the default style applied by Bootstrap */
+    </style>
+    <div th:if="${created}">
+        Created new User! Please try logging in!
+    </div>
+    <div th:if="${param.error}">
+        Invalid username or password
+    </div>
+    <form action="#" th:action="@{/login}" method="post">
+        Username:<br /><input class="form-control" type="text" name="username"/><br />
+        Password:<br /><input class="form-control" type="password" name="password"/><br />
+        <input class="btn btn-primary btn-lg" role="button" type="submit" value="Login" />
+        <a class="btn btn-primary btn-lg" role="button" th:href="@{/register}">Register</a>
 
-        <input type="hidden" th:field="*{id}" />
-        What's on your mind??<br /><textarea class="form-control" rows="3" th:field="*{content}"/><br />
-        <form>
-            <div class="form-group">
-                <input type="file" class="form-control-file" name="file"><br />
-
-                <input class="btn btn-primary btn-lg" role="button" type="submit" value="Send" />
-            </div>
-        </form>
-        <!--    <input class="form-control-file" type="file" name="file" /><br />-->
-
-        <!--    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" th:field="*{sepia}"/>-->
-        <!--    <label class="form-check-label" for="defaultCheck1">-->
-        <!--        Transform to sepia?-->
-        <!--    </label><br /><br />-->
+        <!--        <a class="btn btn-primary btn-lg" role="button" th:href="@{/terms}">Terms and Conditions</a>-->
 
     </form>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -43,5 +39,6 @@
 </div>
 
 <div th:replace="base::footer"></div>
+
 </body>
 </html>

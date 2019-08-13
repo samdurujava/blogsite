@@ -3,7 +3,11 @@ package com.example.blogproject;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Entity
 public class Blog {
@@ -15,12 +19,18 @@ public class Blog {
     @Size(min = 1)
     private String title;
 
+
     @NonNull
-    private String date;
+    private Date postedDate;
 
     @NonNull
     @Size(min = 10)
     private String content;
+
+    private String image;
+
+    @ManyToOne
+    private User user;
 
     public long getId() {
         return id;
@@ -38,12 +48,12 @@ public class Blog {
         this.title = title;
     }
 
-    public String getDate() {
-        return date;
+    public Date getPostedDate() {
+        return postedDate;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setPostedDate(Date postedDate) {
+        this.postedDate = postedDate;
     }
 
     public String getContent() {
@@ -52,5 +62,21 @@ public class Blog {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
