@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title>Blog Posts</title>
     <meta charset="utf-8">
@@ -21,7 +21,7 @@
     <div class="jumbotron" style="background-color:#b87315">
         <h1>Blog Posts</h1>
 <!--        <div class="card text-white bg-dark mb-3 text-center">-->
-            <a href="/addblog" class="btn btn-outline-dark">Add Blog</a>
+            <a span sec:authorize="hasAuthority('ADMIN')" href="/addblog" class="btn btn-outline-dark">Add Blog</a>
         </div>
 <!--            <a href="/addblog" class="btn btn-outline-warning">Add Blog</a><br />-->
 
