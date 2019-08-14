@@ -76,7 +76,8 @@ public class HomeController {
     @RequestMapping("/update/{id}")
     public String updateBlog(@PathVariable("id") long id,
                              Model model){
-        model.addAttribute("blog", blogRepository.findById(id).get());
+        Blog blog = blogRepository.findById(id).get();
+        model.addAttribute("blog", blog);
         return "blogform";
     }
 

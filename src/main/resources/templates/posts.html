@@ -40,6 +40,8 @@
                 <td th:text="${blog.preview}"></td><br />
 
                 <a class="btn btn-warning" th:href="@{/detail/{id}(id=${blog.id})}">View more</a>
+                    <a span sec:authorize="hasAuthority('ADMIN')" class="btn btn-warning" th:href="@{/update/{id}(id=${blog.id})}">Edit Blog</a>
+
                 </div>
             </div>
             <div class="card-footer text-muted">
