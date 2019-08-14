@@ -1,10 +1,39 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>About Author</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" th:href="style.css">
+
+
 </head>
 <body>
+<div th:replace="base :: navlinks"></div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<body>
 
+<div class="container">
+    <div class="card text-white bg-dark mb-3 text-center">
+        <a href="/posts" class="btn btn-outline-warning">Back to Blogs</a>
+    </div>
+    <br />
+    <div class="jumbotron" style="background-color:#b8b0a7">
+
+            <h1 class="card-title" span th:text="${blog.title}"><br /> </span> </h1>
+            <br />
+
+            <div th:text="${blog.content}"><br /> </div>
+    </div>
+
+    <div th:replace="base :: footer"></div>
+</div>
+</body>
 </body>
 </html>

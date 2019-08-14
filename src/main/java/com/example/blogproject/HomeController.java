@@ -4,12 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+import org.thymeleaf.util.ObjectUtils;
 
 import javax.validation.Valid;
+import java.security.Principal;
+import java.util.Date;
+import java.util.Map;
 
 @Controller
 public class HomeController {
@@ -47,6 +49,7 @@ public class HomeController {
         return "blogform";
     }
 
+
     @PostMapping("/process")
     public String processForm(@Valid Blog blog,
                               BindingResult result) {
@@ -54,11 +57,17 @@ public class HomeController {
             return "blogform";
         }
         blogRepository.save(blog);
-        return "redirect:/";
+        return "redirect:/posts";
     }
 
+    @RequestMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+
     @RequestMapping("/detail/{id}")
-    public String showMessage(@PathVariable("id") long id, Model model)
+    public String showBlog(@PathVariable("id") long id, Model model)
     {
         model.addAttribute("blog",blogRepository.findById(id).get());
         return "show";
@@ -74,6 +83,6 @@ public class HomeController {
     @RequestMapping("/delete/{id}")
     public String delBlog(@PathVariable("id") long id){
         blogRepository.deleteById(id);
-        return "redirect:/";
+        return "redirect:/posts";
     }
 }

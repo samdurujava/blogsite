@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Add Blog</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    <link rel="stylesheet" type="text/css" th:href="style.css">
 </head>
 <body>
 <h1></h1>
@@ -16,15 +17,22 @@
 <div class="jumbotron">
     <div class="container">
         <!--<div th:replace="base :: header"></div>-->
-        <form action="#" th:action="@{/send/}" th:object="${blog}" method="post" enctype="multipart/form-data">
+        <form action="#" th:action="@{/process}" th:object="${blog}" method="post">
             <input type="hidden" th:field="*{id}" />
-            What's on your mind??<br /><textarea class="form-control" rows="3" th:field="*{content}"/><br />
-            <form>
-                <div class="form-group">
-                    <input type="file" class="form-control-file" name="file"><br />
+            Blog Title: <textarea class="form-control" rows="1" th:field="*{title}" />
+            <span th:if="${#fields.hasErrors('title')}"
+                  th:errors="*{title}"></span><br />
 
-                    <input class="btn btn-primary btn-lg" role="button" type="submit" value="Post" />
-                </div>
+            Blog Preview: <textarea class="form-control" rows="3" th:field="*{preview}" />
+            <span th:if="${#fields.hasErrors('preview')}"
+                  th:errors="*{preview}"></span><br />
+
+            Full Content: <textarea class="form-control" rows="8" th:field="*{content}" />
+            <span th:if="${#fields.hasErrors('content')}"
+                  th:errors="*{content}"></span><br />
+            <br />
+
+            <input class="btn btn-warning btn-lg" role="button" type="submit" value="Post" />
             </form>
 
         </form>

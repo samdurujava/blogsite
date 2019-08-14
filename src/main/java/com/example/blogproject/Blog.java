@@ -20,6 +20,10 @@ public class Blog {
 
     @NonNull
     @Size(min = 10)
+    private String preview;
+
+    @NonNull
+    @Size(min = 10)
     private String content;
 
     public long getId() {
@@ -44,6 +48,14 @@ public class Blog {
 
     public void setDate(String date) {
         this.date = date;
+    }
+
+    public String getPreview() {
+        return preview;
+    }
+
+    public void setPreview(String preview) {
+        this.preview = preview;
     }
 
     public String getContent() {
